@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: transparent;
+    color:white;
+}
+.name{
+    font-size: 20px;
+}
+
+/*移动端适配*/
+@media (max-width: 414px) {
+    .name{
+        display: none;
+    }
+    .header{
+        display: flex;
+        justify-content: center;
+    }
+}
