@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import Navigator from "@/components/navigator";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+
 
 
 function Layout({
@@ -8,6 +9,10 @@ function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(()=>{
+    //@ts-ignore
+    import('lib-flexible')
+  },[])
   return (
     <div>
       <Navigator scrollTop={20}></Navigator>

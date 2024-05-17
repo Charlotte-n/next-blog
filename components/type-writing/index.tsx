@@ -32,7 +32,7 @@ const TypeWriting: FC<IProps> = () => {
             clearInterval(interval)
         }
     },[originText])
-    return <div className='text-[white] text-[25px]'>
+    return <div className='text-[white] text-[20px]'>
         {text}
     </div>
 }

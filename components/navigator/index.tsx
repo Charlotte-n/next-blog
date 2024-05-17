@@ -19,15 +19,14 @@ const DropDownMenu = ({title,list}:DropDownMenuProps)=>{
         router.push(link)
     }
     return (
-        <div className='absolute pl-[1rem] pr-[1rem] pt-[0.8rem] pb-[0.8rem] bg-[white] rounded '>
-            <div  className='font-[800]'>{title}</div>
-            <div>
+        <div className='absolute  pl-[10px] pr-[10px] pt-[5px] pb-[5px] bg-[white] rounded z-[10]'>
+            <div className=''>
                 {
                     list.map(item=>{
                         return (
-                            <div key={item.name} className='mt-[0.25rem]' onClick={()=>gotoOtherPage(item.link)}>
-                                <i className={`${item.icon} mr-[0.25rem]`}></i>
-                                <span className='text-[0.9rem]'>{item.name}</span>
+                            <div key={item.name} className='mt-[3px] mr-[3px]' onClick={()=>gotoOtherPage(item.link)}>
+                                <i className={`${item.icon} mr-[3px]`}></i>
+                                <span className='text-[15px]'>{item.name}</span>
                             </div>
                         )
                     })
@@ -130,19 +129,19 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
   }
 
     return (
-        <div className='z-[100]' style={{boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)',position:'fixed',width:'100%',top:0,backgroundColor:scrollTop >0?'hsla(0,0%,100%,.4)':'transparent',backdropFilter:'blur(10px)'}}>
+        <div className='z-[100]' style={{boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)',position:'fixed',width:'100vw',top:0,backgroundColor:scrollTop >0?'hsla(0,0%,100%,.4)':'transparent',backdropFilter:'blur(10px)'}}>
             <div className={styles.header} style={{color:scrollTop>0?'black':'white'}}>
                 <div className={`${styles.name} hover:cursor-pointer`} onClick={()=>router.push('/')}>Merikle的Blog</div>
                 <div className="flex items-center">
-                    <Search placeholder="输入关键字..." onSearch={onSearch} style={{ width: 200,marginRight:20 }} />
+                    <Search placeholder="输入关键字..." onSearch={onSearch} style={{ width: '180px',marginRight:'20px' }} />
                     <div className="flex">
                         {
                             category.map(item=>{
                                 return (
                                     <div onMouseEnter={()=>handMouseOver(item.id)} onMouseLeave={()=>handleMouseLeave()} key={item.id} className="mr-[20px] hover:cursor-pointer" onClick={()=>gotoOtherPage(item)}>
                                        <div>
-                                         <span className={`${item.icon} ${current === item.id?"text-[#D6324D]":"text-[black]"}`} style={{width:"20px",height:"20px",display:"inline-block"}}></span>
-                                         <span className={`${current === item.id?"text-[#D6324D]":"text-[black]"}`}>{item.name}</span>
+                                         <span className={`${item.icon} ${current === item.id?"text-[#D6324D]":"text-[black]"}`} style={{width:"25px",height:"25px",display:"inline-block"}}></span>
+                                         <span className={`${current === item.id?"text-[#D6324D]":"text-[black]"} text-[15px]`}>{item.name}</span>
                                        </div>
                                        <div className={`${hoverCurrent === item.id?'show':'hidden'}`}>
                                             {
