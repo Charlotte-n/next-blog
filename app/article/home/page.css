@@ -1,0 +1,99 @@
+@media (max-width: 768px) {
+  .container01 {
+    padding-top: 150px;
+    flex-direction: column;
+  }
+  .container01 .left {
+    width: 100%;
+  }
+  .container01 .left .introduce {
+    width: 300px;
+    left: -80%;
+  }
+  .container01 .left .icon-github {
+    width: 50px;
+    height: 50px;
+  }
+  .container01 .left .icon-juejin-logo {
+    width: 50px;
+    height: 50px;
+  }
+  .container01 .right {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .container {
+    padding-top: 150px;
+  }
+  .container .left {
+    width: 40%;
+  }
+  .container .left .introduce {
+    width: 200px;
+    left: -40%;
+  }
+  .container .left .icon-github {
+    width: 40px;
+    height: 40px;
+  }
+  .container .left .icon-juejin-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .container {
+    padding-top: 150px;
+  }
+  .container .left {
+    width: 40%;
+  }
+  .container .left .introduce {
+    width: 200px;
+    left: -40%;
+  }
+  .container .left .icon-github {
+    width: 40px;
+    height: 40px;
+  }
+  .container .left .icon-juejin-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+.introduction {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.introduction:hover .avatar {
+  animation: hiddenImage 0.2s ease-out 1 forwards;
+}
+.introduction:hover .introduce {
+  display: block;
+  animation: showText 0.5s ease-in-out 2 forwards;
+}
+
+.right {
+  flex-shrink: 0;
+  align-self: first baseline;
+}
+
+@keyframes hiddenImage {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    display: none;
+  }
+}
+@keyframes showText {
+  0% {
+    opacity: inherit;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=page.css.map */

@@ -1,0 +1,110 @@
+//第一个屏幕
+@media  (max-width:768px) {
+    .container01{
+        padding-top: 150px;
+        flex-direction: column;
+        .left{
+            width: 100%;
+            .introduce{
+                width: 300px;
+                left: -80%;
+            }
+            .icon-github{
+                width: 50px;
+                height: 50px;
+            }
+            .icon-juejin-logo{
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .right{
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+    
+}
+//第二个屏幕
+@media (min-width:768px) and (max-width:992px) {
+    .container{
+        padding-top: 150px;
+        .left{
+            width: 40%;
+            .introduce{
+                width: 200px;
+                left: -40%;
+            }
+            .icon-github{
+                width: 40px;
+                height: 40px;
+            }
+            .icon-juejin-logo{
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    
+}
+@media (min-width:992px) and (max-width:1200px) {
+    .container{
+        padding-top: 150px;
+        .left{
+            width: 40%;
+            .introduce{
+                width: 200px;
+                left: -40%;
+            }
+            .icon-github{
+                width: 40px;
+                height: 40px;
+            }
+            .icon-juejin-logo{
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    
+}
+
+//第三个屏幕
+
+.introduction{
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+        .avatar {
+            animation: hiddenImage 0.2s ease-out 1 forwards;
+        }
+        .introduce{
+            display: block;
+            animation: showText 0.5s ease-in-out 2 forwards;
+        }
+    } 
+}
+.right{
+    flex-shrink: 0;
+    align-self:first baseline ;
+}
+
+//显示文字
+
+@keyframes hiddenImage {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+}
+@keyframes showText {
+    0%{
+        opacity: inherit;
+    }
+    100%{
+        opacity: 1;
+    }
+}

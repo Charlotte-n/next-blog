@@ -13,7 +13,7 @@ import styles from '../styles/page/page.module.css';
 //卡片
 const Card = ({title,className,img}:{title:string,className:string,img:string})=>{
   //获取容器的高度
-  const image = useRef()
+  const image = useRef<any>()
   console.log(image);
   
   //向上动画
@@ -42,7 +42,7 @@ const Card = ({title,className,img}:{title:string,className:string,img:string})=
       loader={myLoader}
       src="me.png"
       alt="图片"
-      width={800}
+      width={900}
       height={400}
       style={{borderRadius:'20px'}}
       className={styles.CardImg}
@@ -106,7 +106,7 @@ function App({Component,pageProps}: AppProps) {
           <div>博客更多功能入口</div>
         </div>
         {/* 功能模块 */}
-        <div className={`mt-[50px] grid justify-center items-center  ${styles.function}`}>
+        <div className={`pl-[20px] pr-[20px] mt-[50px] grid justify-center items-center  ${styles.function}`}>
           <div className={styles.functionContent}>
             <Card title={"个人简历"} className='mask' img=''></Card>
           </div>

@@ -54,7 +54,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
             list:[
                 {
                     name:'文章列表',
-                    link:'',
+                    link:'/article/home',
                     icon:''
                 },
                 {

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4544783 */
-  src: url('//at.alicdn.com/t/c/font_4544783_pix35s7fmip.woff2?t=1715647718670') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4544783_pix35s7fmip.woff?t=1715647718670') format('woff'),
-       url('//at.alicdn.com/t/c/font_4544783_pix35s7fmip.ttf?t=1715647718670') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4544783_fsvcnv5vzxg.woff2?t=1715931804301') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4544783_fsvcnv5vzxg.woff?t=1715931804301') format('woff'),
+       url('//at.alicdn.com/t/c/font_4544783_fsvcnv5vzxg.ttf?t=1715931804301') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,38 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weixin:before {
+  content: "\e893";
+}
+
+.icon-shengyinjingyin:before {
+  content: "\eca9";
+}
+
+.icon-shengyinkai:before {
+  content: "\e61a";
+}
+
+.icon-juejin-logo:before {
+  content: "\e603";
+}
+
+.icon-github:before {
+  content: "\e66f";
+}
+
+.icon-icon_bofang:before {
+  content: "\e61b";
+}
+
+.icon-douyin:before {
+  content: "\e673";
+}
+
+.icon-zanting:before {
+  content: "\e79d";
 }
 
 .icon-xiala:before {

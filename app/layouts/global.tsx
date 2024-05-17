@@ -1,8 +1,7 @@
 import Footer from "@/components/footer";
 import Navigator from "@/components/navigator";
 import { memo, useEffect } from "react";
-
-
+import '../assets/icon/icon.css'
 
 function Layout({
   children,
