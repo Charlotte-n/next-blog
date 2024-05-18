@@ -4,7 +4,7 @@ import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
 import Image from 'next/image'
 import  '../home/page.css'
-import ArticleTag from '../../../components/article/articles/tags/index'
+import ArticleTag from '../../../../components/article/articles/tags/index'
 import gsap from 'gsap';
 import { Button } from 'antd';
 import Pagination from '@/components/pagination';

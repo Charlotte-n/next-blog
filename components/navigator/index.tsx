@@ -54,7 +54,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
             list:[
                 {
                     name:'文章列表',
-                    link:'/article/home',
+                    link:'/pages/article/home',
                     icon:''
                 },
                 {
@@ -88,7 +88,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 },
                 {
                     name:'留言板',
-                    link:'/friend/message',
+                    link:'/pages/friend/message',
                     icon:''
                 }
             ]

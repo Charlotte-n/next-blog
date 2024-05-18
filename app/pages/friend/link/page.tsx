@@ -1,5 +1,5 @@
 'use client'
-import Layout from '@/app/layouts/global'
+import Layout from '@/app/pages/layouts/global'
 import React, { memo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import Image from 'next/image'

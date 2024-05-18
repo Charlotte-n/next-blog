@@ -1,6 +1,6 @@
 'use client';
 import type { AppProps } from 'next/app'
-import  Layout from "@/app/layouts/global";
+import  Layout from "@/app/pages/layouts/global";
 import { memo, useEffect, useRef, useState } from 'react';
 import TypeWriting from '@/components/type-writing';
 import '../app/assets/icon/icon.css'
@@ -14,8 +14,6 @@ import styles from '../styles/page/page.module.css';
 const Card = ({title,className,img}:{title:string,className:string,img:string})=>{
   //获取容器的高度
   const image = useRef<any>()
-  console.log(image);
-  
   //向上动画
   const goUp = ()=>{
     gsap.fromTo(
@@ -82,7 +80,6 @@ function App({Component,pageProps}: AppProps) {
   return (
     <div className='relative'>
       <Layout>
-       
               <div className='fixed w-[100vw]' style={{zIndex:-25}}>
                 <img alt="blog-bg" decoding="async" data-nimg="1" height={1000} style={{height:"100vh",width:'100vw'}}  src="http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg" />
               </div>
@@ -130,7 +127,6 @@ function App({Component,pageProps}: AppProps) {
                   <div>今天开始我的网站制作系统</div>
                 </div>
               </div>
-    
       </Layout>
     
     </div>
