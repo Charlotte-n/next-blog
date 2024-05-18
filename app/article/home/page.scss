@@ -1,10 +1,10 @@
 //第一个屏幕
 @media  (max-width:768px) {
-    .container01{
+    .container{
         padding-top: 150px;
         flex-direction: column;
         .left{
-            width: 100%;
+            width: 100% !important;
             .introduce{
                 width: 300px;
                 left: -80%;
@@ -28,6 +28,7 @@
 //第二个屏幕
 @media (min-width:768px) and (max-width:992px) {
     .container{
+        width: 100vw !important;
         padding-top: 150px;
         .left{
             width: 40%;
@@ -45,7 +46,9 @@
             }
         }
     }
-    
+    .right{
+        width: 59%;
+    } 
 }
 @media (min-width:992px) and (max-width:1200px) {
     .container{
@@ -64,6 +67,9 @@
                 width: 40px;
                 height: 40px;
             }
+        }
+        .right{
+            width: 50%;
         }
     }
     
@@ -86,7 +92,11 @@
 }
 .right{
     flex-shrink: 0;
-    align-self:first baseline ;
+    align-self:first baseline;
+    
+}
+:global(.ant-pagination-item){
+    height: 100px !important;
 }
 
 //显示文字

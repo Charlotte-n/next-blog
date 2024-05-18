@@ -10,7 +10,7 @@
 }
 
 /*移动端适配*/
-@media (max-width: 414px) {
+@media (max-width: 768px) {
     .name{
         display: none;
     }

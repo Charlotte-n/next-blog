@@ -88,7 +88,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 },
                 {
                     name:'留言板',
-                    link:'',
+                    link:'/friend/message',
                     icon:''
                 }
             ]
@@ -130,7 +130,8 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
 
     return (
         <div className='z-[100]' style={{boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)',position:'fixed',width:'100vw',top:0,backgroundColor:scrollTop >0?'hsla(0,0%,100%,.4)':'transparent',backdropFilter:'blur(10px)'}}>
-            <div className={styles.header} style={{color:scrollTop>0?'black':'white'}}>
+            <div className=''>
+                <div className={styles.header} style={{color:scrollTop>0?'black':'white'}}>
                 <div className={`${styles.name} hover:cursor-pointer`} onClick={()=>router.push('/')}>Merikle的Blog</div>
                 <div className="flex items-center">
                     <Search placeholder="输入关键字..." onSearch={onSearch} style={{ width: '180px',marginRight:'20px' }} />
@@ -155,6 +156,8 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                     </div>
                 </div>
             </div>
+            </div>
+            
         </div>
 
     )

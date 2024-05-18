@@ -17,6 +17,7 @@
 }
 
 body {
+  background-color:#F3F5FA;
   color: rgb(var(--foreground-rgb));
   /* background: linear-gradient(
       to bottom,
@@ -31,3 +32,15 @@ body {
     text-wrap: balance;
   }
 }
+.ant-pagination-item-active{
+    background-color:#B00000 !important;
+    border-color:white !important;
+  }
+ .ant-pagination-item-active a{
+  color:white !important;
+ } 
+
+ .globalLayOut{
+  max-width:1440px;
+  margin:0 auto; 
+ }

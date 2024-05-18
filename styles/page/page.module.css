@@ -1,5 +1,20 @@
+@media (min-width:1440px) and (max-width:2800px){
+     .function{
+        padding:0 200px;
+        grid-template-columns:1fr 1fr;
+        grid-column-gap:50px;
+    }
+    .functionContent{
+        width:100%;
+    }
+    .CardImg{
+        height:280px;
+        width:100%;
+    }
+}
 @media  screen and (min-width: 415px) and (max-width: 1440px) {
     .function{
+        padding:0 200px;
         grid-template-columns:1fr 1fr;
         grid-column-gap:30px;
     }
@@ -12,6 +27,7 @@
     }
 }
 @media (max-width:414px){
+
     .function{
         grid-template-columns:1fr;
         grid-row-gap:10px;

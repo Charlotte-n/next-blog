@@ -76,7 +76,9 @@ const text: FC<IProps> = () => {
     const myLoader = ()=>{
         return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202403/a9bd369e2537a55a836fbb3f707853ee--427633077.jpg'
     }
-    return <Layout>
+    return (
+        <div className='relative h-[100%] min-h-[100vh]'>
+             <Layout>
        <div className='container'>
         {/* 喜欢的博主 */}
             <div className=''>
@@ -111,6 +113,8 @@ const text: FC<IProps> = () => {
             </div>
        </div>
     </Layout>
+        </div>
+    )
 }
 
 export default memo(text)

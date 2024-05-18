@@ -17,11 +17,10 @@ const Footer: FC<IProps> = () => {
             <div>站点索引</div>
             <div>友情链接</div>
         </div>
-        <div className='flex-[2] mr-[10px]'>
+        <div className='flex-[2] mr-[10px] self-start'>
             <div>联系我</div>
             <div>qq:3495314473</div>
             <div>微信:13383024736</div>
-            <div>邮箱:3495314473@qq.com</div>
         </div>
         <div className='self-start flex-1'>
             <div>© 2024 Merikle</div>

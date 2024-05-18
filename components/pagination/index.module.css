@@ -1,0 +1,18 @@
+.paginationBtn:hover{
+    border-color:#B00000 !important;
+    color:black !important;
+}
+.paginationBtn1:hover{
+    border-color:#B00000 !important;
+    color:black !important;
+}
+.active{
+     background-color: #B00000 !important;
+     color:white !important;
+}
+
+@media (max-width:414px){
+    .paginationBtn1{
+        display:none;
+    }  
+}

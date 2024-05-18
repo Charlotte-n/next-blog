@@ -16,7 +16,10 @@ function Layout({
     <div>
       <Navigator scrollTop={20}></Navigator>
       {children}
-      <Footer></Footer>
+      <div className="absolute bottom-0 w-[100%]">
+        <Footer></Footer>
+      </div>
+      
     </div>
   );
 }

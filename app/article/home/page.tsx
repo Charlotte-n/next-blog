@@ -6,12 +6,17 @@ import Image from 'next/image'
 import  '../home/page.css'
 import ArticleTag from '../../../components/article/articles/tags/index'
 import gsap from 'gsap';
+import { Button } from 'antd';
+import Pagination from '@/components/pagination';
 
 interface IProps {
     children?: ReactNode
 }
 
 const ArticleHome: FC<IProps> = () => {
+    const ChangePage = ()=>{
+
+    }
     useEffect(()=>{
         //@ts-ignore
         import('lib-flexible')
@@ -39,7 +44,7 @@ const ArticleHome: FC<IProps> = () => {
     return (
         <Layout>
             {/* 左右布局 */}
-            <div className='container01 pt-[100px] pl-[40px] pr-[40px] pb-[100px] bg-[#F3F5FA] w-[100%] flex justify-between'>
+            <div className='container pt-[100px] pl-[40px] pr-[40px] pb-[100px] bg-[#F3F5FA] w-[100vw] flex justify-between'>
                 {/* 左侧 */}
                 <div className='w-[20%] left'>
                     <div className='pl-[20px] pr-[20px] pt-[20px] pb-[20px] text-[white] bg-[#B20909]  rounded-md'>
@@ -81,8 +86,8 @@ const ArticleHome: FC<IProps> = () => {
                     </div>
                 </div>
                 {/* 右侧 */}
-                <div className='right w-[78%]  bg-[#FFF] border-[1px] border-[#E3E8F7] rounded-md'>
-                    <div className='pl-[30px] pr-[30px] pt-[20px] pb-[20px]'>
+                <div className='right pl-[30px] pr-[30px] pt-[20px] pb-[20px] w-[78%]  bg-[#FFF] border-[1px] border-[#E3E8F7] rounded-md'>
+                    <div className='mb-[30px]'>
                         <div className='text-[25px] text-[800]'>文章<span>(38)</span></div>
                         {/* 文章列表 */}
                         <div className='mt-[20px] text-[16px]'>
@@ -103,7 +108,12 @@ const ArticleHome: FC<IProps> = () => {
                             </div>
                         </div>
                     </div>
+                    {/* 分页 */}
+                    <div className=' m-auto text-center'>
+                       <Pagination total={40} onChange={()=>ChangePage()}></Pagination>
+                    </div>
                 </div>
+
             </div>
             
         </Layout>
