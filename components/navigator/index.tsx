@@ -58,18 +58,8 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                     icon:''
                 },
                 {
-                    name:'标签',
-                    link:'',
-                    icon:''
-                },
-                {
-                    name:'归档',
-                    link:'',
-                    icon:''
-                },
-                {
                     name:'笔记',
-                    link:'',
+                    link:'/pages/article/notes',
                     icon:''
                 },
 
@@ -83,7 +73,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
             list:[
                 {
                     name:'友情链接',
-                    link:'/friend/link',
+                    link:'/pages/friend/link',
                     icon:''
                 },
                 {
@@ -105,7 +95,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                     icon:''
                 },
                 {
-                    name:'我的文章',
+                    name:'我的项目',
                     link:'',
                     icon:''
                 },
