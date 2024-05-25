@@ -42,7 +42,8 @@ const ArticleHome: FC<IProps> = () => {
        return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
     }
     return (
-        <Layout>
+        <div className='relative'>
+            <Layout>
             {/* 左右布局 */}
             <div className='container pt-[100px] pl-[40px] pr-[40px] pb-[100px] bg-[#F3F5FA] w-[100vw] flex justify-between'>
                 {/* 左侧 */}
@@ -117,6 +118,8 @@ const ArticleHome: FC<IProps> = () => {
             </div>
             
         </Layout>
+        </div>
+        
     )
 }
 

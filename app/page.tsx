@@ -10,6 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import styles from '../styles/page/page.module.css';
 
+
 //卡片
 const Card = ({title,className,img}:{title:string,className:string,img:string})=>{
   //获取容器的高度
@@ -31,17 +32,17 @@ const Card = ({title,className,img}:{title:string,className:string,img:string})=
   }
   
   const myLoader = () => {
-  return `http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg`
-}
+    return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
+  }
   return (
     <div className='relative'>
       <Image
       ref={image}
       loader={myLoader}
-      src="me.png"
+      src="bg.png"
       alt="图片"
       width={900}
-      height={400}
+      height={300}
       style={{borderRadius:'20px'}}
       className={styles.CardImg}
     />
@@ -68,21 +69,19 @@ function App({Component,pageProps}: AppProps) {
     //@ts-ignore
     import('lib-flexible')
     const getScrollTop = function(){
-      setScrollTop(document.documentElement.scrollTop)
-      console.log(scrollTop);
-      
+      setScrollTop(document.documentElement.scrollTop)      
     }
     window.addEventListener('scroll',getScrollTop)
     return ()=>{
       window.removeEventListener('scroll',getScrollTop)
     }
   },[scrollTop])
+  const myLoader = () => {
+    return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
+  }
   return (
-    <div className='relative'>
-      <Layout>
-              <div className='fixed w-[100vw]' style={{zIndex:-25}}>
-                <img alt="blog-bg" decoding="async" data-nimg="1" height={1000} style={{height:"100vh",width:'100vw'}}  src="http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg" />
-              </div>
+    <div className={`relative  ${styles.container}`}>
+      <Layout>   
               {/* 加一个mask */}
               <div className='w-[100%] h-[100vh] fixed z-[-20]' style={{backgroundColor:'rgba(0,0,0,.2)'}}></div>
               {/* 放置一些文字 */}
@@ -116,16 +115,16 @@ function App({Component,pageProps}: AppProps) {
                 </div>
               </div>
               {/* 第三个屏幕,记录我的博客的更改时间,滑动的效果 */}
-              <div className='flex flex-col justify-center items-center h-[50vh] bg-[#F5F5F5]'>
-                <div className='text-[30px] font-bold tracking-[0.2em]'>
-                  GROWTH RECORD
-                </div>
-                <div className='mb-[5px]   h-[5px] w-[100px] bg-[#727CF5] '></div>
-                <div>[ 左右滑动查看 ]</div>
-                <div className='flex items-center flex-col mt-[100px]'>
-                  <span className='text-[20px] mb-[20px]'>2024/5/15</span>
-                  <div>今天开始我的网站制作系统</div>
-                </div>
+                <div className='flex flex-col justify-center h-[50vh] items-center bg-[#F5F5F5]'>
+                  <div className='text-[30px] font-bold tracking-[0.2em]'>
+                    GROWTH RECORD
+                  </div>
+                  <div className='mb-[5px]  h-[5px] w-[100px] bg-[#727CF5] '></div>
+                  <div>[ 左右滑动查看 ]</div>
+                  <div className='flex items-center flex-col mt-[100px]'>
+                    <span className='text-[20px] mb-[20px]'>2024/5/15</span>
+                    <div>今天开始我的网站制作系统</div>
+                  </div>
               </div>
       </Layout>
     

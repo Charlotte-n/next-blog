@@ -1,3 +1,6 @@
+.container{
+    background-image:url('http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg');
+}
 @media (min-width:1440px) and (max-width:2800px){
      .function{
         padding:0 200px;

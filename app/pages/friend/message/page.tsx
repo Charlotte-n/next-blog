@@ -1,10 +1,12 @@
 "use client";
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import Layout from '../../layouts/global'
-import { Button, Input } from 'antd';
-const { TextArea } = Input;
-
+import {Button, Input,Textarea} from "@nextui-org/react";
+import { GetMessageApi } from '@/app/api/message';
+import Comment from '@/app/components/friends/message/Comment';
+import SingleMessage from '../../../components/friends/message/SingleMessage'
+import { MessagesType } from '@/app/api/types/message';
 interface IProps {
     children?: any
 }
@@ -23,50 +25,72 @@ const Message: FC<IProps> = () => {
         //@ts-ignore
         import('lib-flexible')
     })
-    return <Layout>
-        <div className=' m-auto'>
-            <div className='globalLayOut h-[88vh] pt-[90px] pl-[40px] pr-[40px] pb-[20px]'>
-                <div className='text-[25px] text-center mb-[1px] text-[#363636] font-[600]'>留言</div>
-                {/* 一些解释文本 */}
-                <div>
-                <MySingleList>
-                    {{
-                    'content':<div>这是我搭建的一个<span className='pl-[10px] pr-[10px] pt-[3px] pb-[3px] bg-[#B00000] text-[white] rounded-sm text-[18px]'>NextJs博客</span>。在这里,我相信我会监督自己继续记录学习内容</div>
-                    }}
-                </MySingleList>
-                <MySingleList>
-                    {{
-                    'content':<div>如果对本站有什么<span className='pl-[10px] pr-[10px] pt-[3px] pb-[3px] bg-[#B00000] text-[white] rounded-sm text-[18px]'>好的建议</span>。欢迎留言在此,或者github联系我。</div>
-                    }}
-                </MySingleList>
-                <MySingleList>
-                    {{
-                    'content':<div>如果本站使用素材又涉及到<span className='pl-[10px] pr-[10px] pt-[3px] pb-[3px] bg-[#B00000] text-[white] rounded-sm text-[18px]'>版权问题</span>。请联系我,我会尽快进行处理。</div>
-                    }}
-                </MySingleList>
-                </div>
-                {/* 一些评论 */}
-                <div className='mt-[50px] text-[#363636] font-[600] text-[20px]'>
-                    <div >评论</div>
-                    <div>
-                       <TextArea
-                        showCount
-                        maxLength={500}
-                        placeholder="留下您的建议"
-                        
-                        style={{ height: 150, resize: 'none',border:'2px solid #E3E8F7' }}
-                    />
+    
+    const [messages,SetMessages] = useState([] as MessagesType)
+    //获取评论
+    const GetMessage = async()=>{
+       const res =  await GetMessageApi()       
+       SetMessages(res.data as MessagesType)
+    }
+    useEffect(()=>{
+        GetMessage()
+    },[])
+    useEffect(()=>{
+        console.log(messages);
+    },[messages])
+
+    return <div className='relative h-[100%] min-h-[100vh] pb-[200px]'>
+        <Layout>
+            <div className='h-[100%]'>
+                <div className='pt-[90px] pl-[40px] pr-[40px] '>
+                <div className='globalLayOut'>
+                    <div className='text-[25px] text-center mb-[1px] text-[#363636] font-[600]'>留言</div>
+                    {/* 一些解释文本 */}
+                    <MySingleList>
+                        {{
+                        'content':<div>这是我搭建的一个<span className='pl-[10px] pr-[10px] pt-[3px] pb-[3px] bg-[#B00000] text-[white] rounded-sm text-[18px]'>NextJs博客</span>。在这里,我相信我会监督自己继续记录学习内容</div>
+                        }}
+                    </MySingleList>
+                    <MySingleList>
+                        {{
+                        'content':<div>如果对本站有什么<span className='pl-[10px] pr-[10px] pt-[3px] pb-[3px] bg-[#B00000] text-[white] rounded-sm text-[18px]'>好的建议</span>。欢迎留言在此,或者github联系我。</div>
+                        }}
+                    </MySingleList>
+                    <MySingleList>
+                        {{
+                        'content':<div>如果本站使用素材又涉及到<span className='pl-[10px] pr-[10px] pt-[3px] pb-[3px] bg-[#B00000] text-[white] rounded-sm text-[18px]'>版权问题</span>。请联系我,我会尽快进行处理。</div>
+                        }}
+                    </MySingleList>
+                    {/* 一些评论 */}
+                    <div className='mt-[50px] text-[#363636] font-[600] text-[20px]'>
+                        <div className='mb-[10px]'>
+                            <i className='iconfont icon-pinglun mr-[10px]' style={{fontSize:'23px'}}></i>
+                            <span>评论</span>
+                        </div>
+                        <Comment>
+                            {{
+                                GetMessage:GetMessage
+                            }}
+                        </Comment>
                     </div>
-                    <div className='mt-[40px] flex'>
-                        <Input className='mr-[20px] h-[40px]' prefix='昵称' placeholder='必填' style={{border:'2px solid #E2E8F7'}}></Input>
-                        <Input className='mr-[20px]' prefix='邮箱' placeholder='必填' style={{border:'2px solid #E2E8F7'}}></Input>
-                        <Input className='mr-[20px]' prefix='网址' placeholder='选填' style={{border:'2px solid #E2E8F7'}}></Input>
-                        <Button className='bg-[#B30000] h-[40px] text-[17px] text-[white]'>发送</Button>
+                    {/* 用户的评论 */}
+                    <div className='mt-[30px]'>
+                        {/* 进行循环 */}
+                        {
+                           messages?messages.map(item=>{
+                              return  <div key={item.id} className='mb-[25px]'>
+                                <SingleMessage  data={item}></SingleMessage>
+                              </div>
+                            }):null
+                        }
+                        
                     </div>
                 </div>
             </div>
-        </div>
-    </Layout>
+            </div>
+           
+        </Layout>
+    </div>
 }
 
 export default memo(Message)

@@ -1,9 +1,9 @@
 "use client";
-import React, {memo, useState} from 'react'
+import React, {memo, useEffect, useState} from 'react'
 import type {FC, ReactNode} from 'react'
 import styles from './navigator.module.css'
 import Search from "antd/es/input/Search"
-import {useRouter} from 'next/navigation';
+import {useRouter,usePathname} from 'next/navigation';
 interface IProps {
     children?: any,
     scrollTop:number
@@ -12,19 +12,30 @@ interface DropDownMenuProps{
     title:string,
     list:{icon:string,name:string,link:string}[],
 }
+//进行映射
+enum MAP_URL  {
+    '/'='0',
+    '/pages/article/home'='1',
+    '/pages/article/notes'='1',
+    '/pages/friend/link'='2',
+    '/pages/friend/message'='2'
+}
 //下拉显示的内容
 const DropDownMenu = ({title,list}:DropDownMenuProps)=>{
     const router = useRouter()
+    const name = usePathname()
+    
     const gotoOtherPage = (link:string)=>{
         router.push(link)
     }
+    
     return (
-        <div className='absolute  pl-[10px] pr-[10px] pt-[5px] pb-[5px] bg-[white] rounded z-[10]'>
+        <div className='absolute bg-[white] rounded z-[10]'>
             <div className=''>
                 {
                     list.map(item=>{
                         return (
-                            <div key={item.name} className='mt-[3px] mr-[3px]' onClick={()=>gotoOtherPage(item.link)}>
+                            <div key={item.name} className=' pl-[10px] pr-[10px] pt-[5px] pb-[5px] rounded hover:bg-[#B20909] hover:text-[white]' onClick={()=>gotoOtherPage(item.link)}>
                                 <i className={`${item.icon} mr-[3px]`}></i>
                                 <span className='text-[15px]'>{item.name}</span>
                             </div>
@@ -37,6 +48,7 @@ const DropDownMenu = ({title,list}:DropDownMenuProps)=>{
 }
 const Navigator: FC<IProps> = ({scrollTop}) => {
     const router = useRouter()
+    const PathName = usePathname()
     // category
     const category = [
         {
@@ -117,6 +129,9 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
   const handleMouseLeave = ()=>{
     SetHoverCurrent('')
   }
+  useEffect(()=>{
+        SetCurrent((MAP_URL as any)[PathName])
+    },[PathName,current])
 
     return (
         <div className='z-[100]' style={{boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)',position:'fixed',width:'100vw',top:0,backgroundColor:scrollTop >0?'hsla(0,0%,100%,.4)':'transparent',backdropFilter:'blur(10px)'}}>
