@@ -26,7 +26,7 @@ const Notes: FC<IProps> = () => {
     useEffect(()=>{
         goUp()
     })
-    return <div className='relative'>
+    return <div className='relative '>
         <Layout>
             <div className=''>
                 <div className=''>
@@ -43,7 +43,7 @@ const Notes: FC<IProps> = () => {
                                                 })
                                             }
                                         
-                                        </div>     
+                            </div>     
                     </div>
                 </div>
             </div>

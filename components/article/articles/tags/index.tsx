@@ -8,56 +8,34 @@ interface IProps {
 const ArticleTags: FC<IProps> = () => {
     const content = [{
         id:'0',
-        tag:'html',
+        tag:'前端',
         number:1
     },
     {
         id:'1',
-        tag:'css',
+        tag:'后端',
         number:1
     },
     {
         id:'2',
-        tag:'JavaScript',
+        tag:'全栈',
         number:1
     },
     {
         id:'3',
-        tag:'nodejs',
+        tag:'部署',
         number:1
     },
     {
         id:'4',
-        tag:'mongodb',
+        tag:'新东西',
         number:1
-    },
-    {
-        id:'5',
-        tag:'React',
-        number:1
-    },
-    {
-        id:'6',
-        tag:'Vue',
-        number:1
-    },
-    {
-        id:'7',
-        tag:'React Native',
-        number:1,
-    },
-    {
-        id:'8',
-        tag:'git',
-        number:1
-    },
-    {
-        id:'9',
-        tag:'docker',
-        number:1
-    },
-    
+    }
 ]
+//点击跳转到分类的页面
+const gotoCategory = ()=>{
+    
+}
     return <div className='bg-[white] pl-[15px]  pt-[5px] pb-[15px] border-[#E3E8F7] border-[1px] rounded'>
         <div className='flex flex-wrap'>
             {

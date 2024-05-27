@@ -1,3 +1,4 @@
+"use client"
 import Footer from "@/components/footer";
 import Navigator from "@/components/navigator";
 import { memo, useEffect } from "react";

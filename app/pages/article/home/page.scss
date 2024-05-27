@@ -3,6 +3,7 @@
     .container{
         padding-top: 150px;
         flex-direction: column;
+        height: 100vh;
         .left{
             width: 100% !important;
             .introduce{
@@ -30,6 +31,7 @@
     .container{
         width: 100vw !important;
         padding-top: 150px;
+        height: 100vh;
         .left{
             width: 40%;
             .introduce{
@@ -53,6 +55,7 @@
 @media (min-width:992px) and (max-width:1200px) {
     .container{
         padding-top: 150px;
+        height: 100vh;
         .left{
             width: 40%;
             .introduce{
@@ -118,3 +121,22 @@
         opacity: 1;
     }
 }
+h1 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 25px;
+  font-weight: 500;
+}/*# sourceMappingURL=index.css.map */

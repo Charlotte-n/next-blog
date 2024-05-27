@@ -1,0 +1,20 @@
+.is-active {
+  color: #B20909;
+}
+.is-active::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #B20909;
+  margin-right: 10px;
+}
+
+.node-name--H2 {
+  padding-left: 20px;
+}
+
+.node-name--H3 {
+  padding-left: 30px;
+}/*# sourceMappingURL=index.css.map */
