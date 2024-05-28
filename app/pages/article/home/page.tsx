@@ -19,14 +19,14 @@ interface IProps {
 export function PostCard(post: Post) {
   return (
     <div className="mb-[50px] flex">
-      <div className='mr-[20px]'>
+      <div className='mr-[20px] '>
          <Link href={post.url} className="text-black hover:text-[#B20909] dark:text-blue-400">
              {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={post.image} alt=''   className='rounded cursor-pointer w-[200px] h-[100px]'/> 
+            <img src={post.image} alt=''   className='articleImg rounded cursor-pointer w-[200px] h-[100px]'/> 
         </Link>
       </div>  
-      <div>
-        <h2 className="mb-[3px] text-[26px]">
+      <div className='w-[50%]'>
+        <h2 className="mb-[3px] text-[26px] ">
         <Link href={post.url} className="text-black hover:text-[#B20909] dark:text-blue-400">
           {post.title}
         </Link>

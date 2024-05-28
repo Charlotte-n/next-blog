@@ -17,7 +17,7 @@ const SingleNote: FC<IProps> = () => {
     return <div className='pl-[10px] pt-[10px] pb-[10px] pr-[10px] text-[18px] bg-[#D6324D] rounded-md text-[white]'>
        <div className='max-w-[400px]'>重装系统时抹掉指纹(登录ssh突然遇到密钥类问题)</div>
        {/* 笔记内容 */}
-       <div className='relative flex mt-[20px] overflow-x-auto overflow-y-hidden bg-[black] pl-[20px] pr-[10px] pb-[10px] pt-[10px]'>
+       <div className='relative flex mt-[20px] overflow-x-auto  overflow-y-hidden bg-[black] pl-[20px] pr-[10px] pb-[10px] pt-[10px]'>
         {/* 全屏显示 */}
         <div className='absolute w-[20px] h-[20px] right-[5px] top-[5px] text-[white] iconfont icon-quanping cursor-pointer hover:text-[#D6324D]' onClick={()=>openModal()}></div>
         <div className='w-[400px] overflow-x-auto overflow-y-hidden'>ssh-keygen -R 172.16.152.209hahhahahahnihsihei</div>

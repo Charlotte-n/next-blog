@@ -141,7 +141,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 <div className={styles.header} style={{color:scrollTop>0?'black':'white'}}>
                 <div className={`${styles.name} hover:cursor-pointer`} onClick={()=>router.push('/')}>Merikle的Blog</div>
                 <div className="flex items-center">
-                    <Search placeholder="输入关键字..." onSearch={onSearch} style={{ width: '180px',marginRight:'20px' }} />
+                    <Search className={styles.search} placeholder="输入关键字..." onSearch={onSearch} style={{ width: '180px',marginRight:'20px' }} />
                     <div className="flex items-center">
                         {
                             category.map(item=>{

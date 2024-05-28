@@ -1,0 +1,12 @@
+::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width:768px) {
+    .notes{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .noteText{
+        left: 40%;
+    }
+}

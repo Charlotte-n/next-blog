@@ -18,4 +18,8 @@
         display: flex;
         justify-content: center;
     }
+    .search{
+        display:none;
+    }
 }
+

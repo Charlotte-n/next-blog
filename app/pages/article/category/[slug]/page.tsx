@@ -21,9 +21,12 @@ const Category: FC<IProps> = () => {
     const basePage = 5
     const length = allPosts.length
     let [posts,setPosts] = useState(()=> allPosts.filter(item=>{
-       return  item.category === `${path}\r`
+        if(process.env.NEXT_PUBLIC_CURRENT === 'development'){
+            return  item.category === `${path}\r`
+        }
+       return  item.category === `${path}`
     })?.slice(0,basePage ))
-    console.log(path);
+    console.log(path,"我的");
     
     // 做分页
     const ChangePage = (index:number)=>{
@@ -48,7 +51,7 @@ const Category: FC<IProps> = () => {
     })
     return <div className='relative'>
        <Layout>
-        <div className='container-main flex  py-[100px] px-[40px] min-h-[100vh]'>
+        <div className='container-main flex  pt-[100px] pb-[140px] px-[40px] min-h-[100vh]'>
             {/* 左边的 */}
             <div className='left w-[20%]'>
                 <Introduction></Introduction>

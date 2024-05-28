@@ -1,1 +1,5 @@
-/*# sourceMappingURL=index.css.map */
+@media (max-width: 768px) {
+  .card {
+    font-size: 15px !important;
+  }
+}/*# sourceMappingURL=index.css.map */

@@ -8,11 +8,12 @@ import '../app/assets/icon/icon.css'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 import styles from '../styles/page/page.module.css';
+import { useRouter } from 'next/navigation';
 
 //卡片
-const Card = ({title,className,img}:{title:string,className:string,img:string})=>{
+const Card = ({title,className,img,link}:{title:string,className:string,img:string,link:string})=>{
+  const router = useRouter()
   //获取容器的高度
   const image = useRef<any>()
   //向上动画
@@ -30,18 +31,18 @@ const Card = ({title,className,img}:{title:string,className:string,img:string})=
       {height:(image.current as any).clientHeight / 3,borderTopRightRadius:'0px',borderTopLeftRadius:'0px',fontSize:'18px'}
     )
   }
+  const gotoOther = ()=>{
+    router.push(link)
+  } 
   
-  const myLoader = () => {
-    return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
-  }
   return (
     <div className='relative'>
       <img ref={image}
-      src="http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg"
+      src={img}
       alt="图片"
       style={{borderRadius:'20px'}}
       className={styles.CardImg}></img>
-    <div onMouseEnter={()=>goUp()} onMouseLeave={()=>goDown()} className={`bg-[#252524] hover:cursor-pointer h-[30%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
+    <div onClick={()=>gotoOther()} onMouseEnter={()=>goUp()} onMouseLeave={()=>goDown()} className={`bg-[#252524] hover:cursor-pointer h-[30%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
       <div className='text-[white]'>{title}</div>
     </div>
     </div>
@@ -71,9 +72,7 @@ function App({Component,pageProps}: AppProps) {
       window.removeEventListener('scroll',getScrollTop)
     }
   },[scrollTop])
-  const myLoader = () => {
-    return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
-  }
+
   return (
     <div className={`relative  ${styles.container}`}>
       <Layout>   
@@ -101,10 +100,10 @@ function App({Component,pageProps}: AppProps) {
                 {/* 功能模块 */}
                 <div className={`pl-[20px] pr-[20px] mt-[50px] grid justify-center items-center  ${styles.function}`}>
                   <div className={styles.functionContent}>
-                    <Card title={"个人简历"} className='mask' img=''></Card>
+                    <Card link='/pages/more/resume' title={"个人简历"} className='mask' img='https://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202401/67a8ef15b55617ad12a66c8d8b63f55d--1692635138.jpg'></Card>
                   </div>
                   <div className={styles.functionContent}>
-                    <Card title={"后台管理"} className='mask1' img=''></Card>
+                    <Card link='' title={"后台管理"} className='mask1' img='https://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202209/144c2b61333445e946950f036e888b4a--1240830003.jpg'></Card>
                   </div>
                 </div>
                 </div>
@@ -114,8 +113,8 @@ function App({Component,pageProps}: AppProps) {
                   <div className='text-[30px] font-bold tracking-[0.2em]'>
                     GROWTH RECORD
                   </div>
-                  <div className='mb-[5px]  h-[5px] w-[100px] bg-[#727CF5] '></div>
-                  <div>[ 左右滑动查看 ]</div>
+                  <div className='mb-[5px]  h-[10px] w-[100px] bg-[#727CF5] '></div>
+                  {/* <div>[ 左右滑动查看 ]</div> */}
                   <div className='flex items-center flex-col mt-[100px]'>
                     <span className='text-[20px] mb-[20px]'>2024/5/15</span>
                     <div>今天开始我的网站制作系统</div>
