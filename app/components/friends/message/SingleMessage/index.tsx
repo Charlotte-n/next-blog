@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {Card, CardBody} from '@nextui-org/react'
 import React, { memo, use, useState } from 'react'
 import type { FC, ReactNode } from 'react'
@@ -58,14 +59,12 @@ const SingleMessage: FC<IProps> = ({data}) => {
     const closeVisible = ()=>{
         setVisible(false)
     }
-    const MyLoader = ()=>{
-        return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
-    }
     return (
          <Card className="py-[20px] px-[20px]">
             <div className='flex items-center justify-between'>
                 <div className='flex items-center '>
-                     <Image loader={MyLoader} src='avatar.png' alt='头像' width={50} height={50} className='rounded-full w-[40px] h-[40px]'></Image>
+                    
+                    <img src='http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg' alt='头像' width={50} height={50} className='rounded-full w-[40px] h-[40px]'/>
                     <div className='ml-[10px] text-[16px] font-[900] text-[#B00000]'>{data.nickname}</div>   
                     <div className='ml-[10px]'>{data.createdAt}</div>
                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 import type { AppProps } from 'next/app'
 import  Layout from "@/app/pages/layouts/global";
@@ -9,7 +10,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import styles from '../styles/page/page.module.css';
-
 
 //卡片
 const Card = ({title,className,img}:{title:string,className:string,img:string})=>{
@@ -36,16 +36,11 @@ const Card = ({title,className,img}:{title:string,className:string,img:string})=
   }
   return (
     <div className='relative'>
-      <Image
-      ref={image}
-      loader={myLoader}
-      src="bg.png"
+      <img ref={image}
+      src="http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg"
       alt="图片"
-      width={900}
-      height={300}
       style={{borderRadius:'20px'}}
-      className={styles.CardImg}
-    />
+      className={styles.CardImg}></img>
     <div onMouseEnter={()=>goUp()} onMouseLeave={()=>goDown()} className={`bg-[#252524] hover:cursor-pointer h-[30%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
       <div className='text-[white]'>{title}</div>
     </div>

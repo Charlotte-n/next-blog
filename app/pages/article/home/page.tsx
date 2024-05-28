@@ -17,14 +17,12 @@ interface IProps {
 }
 
 export function PostCard(post: Post) {
-  const myLoader = () => {
-    return post.image as string
-  }  
   return (
     <div className="mb-[50px] flex">
       <div className='mr-[20px]'>
          <Link href={post.url} className="text-black hover:text-[#B20909] dark:text-blue-400">
-            <Image  className='rounded cursor-pointer' loader={myLoader} width={200} height={100} src='bg.png' alt='图片'></Image>
+             {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={post.image} alt=''  className='rounded cursor-pointer'/>
         </Link>
       </div>  
       <div>

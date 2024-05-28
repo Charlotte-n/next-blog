@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import Layout from '@/app/pages/layouts/global'
 import React, { memo, useRef, useState } from 'react'
@@ -54,12 +55,9 @@ const Card = ({imageName,name,title}:{imageName:string,name:string,title:string
     }
     
     
-    const myLoader = ()=>{
-        return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202403/a9bd369e2537a55a836fbb3f707853ee--427633077.jpg'
-    }
     return (
         <div onMouseLeave={()=>handleMouseLeave()} onMouseOver={()=>handleMouseEnter()} className={`Card cursor-pointer pl-[20px] pr-[20px] flex items-center  bg-[white] border-[1px] border-solid border-[#E3E8F7] rounded-md h-[100px] mr-[20px] ${name} cardBox`}>
-            <Image  loader={myLoader} alt='' src='friend.png' width={200} height={200} className={`image mr-[20px] w-[59px] h-[59px] rounded-full ${imageName}`}></Image>
+            <img alt='' src='http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202403/a9bd369e2537a55a836fbb3f707853ee--427633077.jpg' className={`image mr-[20px] w-[59px] h-[59px] rounded-full ${imageName}`}/>
             <div className={`w-[150px] ${title}` }>
                 <div className='title mt-[13px] mb-[5px] text-[23px] '>
                     {content}

@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import Layout from '../../layouts/global'
 import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import Image from 'next/image'
 import SingleNote from '../../../../components/article/note/index'
 import gsap from 'gsap'
 
@@ -20,9 +20,6 @@ const Notes: FC<IProps> = () => {
             bottom:'200px' ,translateY:'0px', duration: 0.5, ease: "ease"
         })
     }
-    const MyLoader = ()=>{
-        return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202208/8fd69cf1b996d096201a64a22169f855--4289456152.jpg'
-    }
     useEffect(()=>{
         goUp()
     })
@@ -30,7 +27,8 @@ const Notes: FC<IProps> = () => {
         <Layout>
             <div className=''>
                 <div className=''>
-                    <Image loader={MyLoader} alt='' src='bg.png' width={100} height={100} style={{width:'100%',height:'80vh',borderBottomRightRadius:'30px',borderBottomLeftRadius:'30px'}}></Image>
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                    <img  src='http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202208/8fd69cf1b996d096201a64a22169f855--4289456152.jpg' style={{width:'100%',height:'80vh',borderBottomRightRadius:'30px',borderBottomLeftRadius:'30px'}}></img>
                     <div className='absolute top-[100px] left-[50%] text-[50px] text-[white]'>笔记</div>
                 </div>
                 {/* 笔记专区 */}

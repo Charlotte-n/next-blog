@@ -10,12 +10,6 @@ interface IProps {
 }
 
 const Introduction: FC<IProps> = () => {
-    const myLoader = ()=>{
-        return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
-    }
-    const ContentLoader = ()=>{
-       return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
-    }
     //跳转到GitHub
     const goToGithub = ()=>{
         window.open('https://github.com/Charlotte-n')
@@ -34,7 +28,9 @@ const Introduction: FC<IProps> = () => {
                             <div className='mt-[50px] relative introduction'>
                                 <div className='border-[5px] rounded-full avatar'>
                                     <div className={` avatarImg border-[2px] border-[#B40B0B] rounded-full`}>
-                                        <Image loader={myLoader} src='img.png' alt='' width={200} height={200} className='rounded-full w-[100px] h-[100px]'></Image>
+                                         {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src='http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg' alt=''  className='rounded-full w-[100px] h-[100px]'/>
+                                       
                                     </div>
                                 </div> 
                                  <div className='introduce absolute hidden top-[0px] text-[15px] w-[200px] left-[-30%]'>
