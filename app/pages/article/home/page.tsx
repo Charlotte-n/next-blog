@@ -22,7 +22,7 @@ export function PostCard(post: Post) {
       <div className='mr-[20px]'>
          <Link href={post.url} className="text-black hover:text-[#B20909] dark:text-blue-400">
              {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={post.image} alt=''  className='rounded cursor-pointer'/>
+            <img src={post.image} alt=''   className='rounded cursor-pointer w-[200px] h-[100px]'/> 
         </Link>
       </div>  
       <div>
@@ -46,12 +46,14 @@ const ArticleHome: FC<IProps> = () => {
     //做分页
     const basePage = 5
     const length = allPosts.length
-    let [posts,setPosts] = useState(()=>allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))?.slice(0,basePage ))
+    let [posts,setPosts] = useState(()=>allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))?.slice(0,basePage))
     // 做分页
     const ChangePage = (index:number)=>{
         setPosts(()=>allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).slice((index - 1)*5,(index*5)))
     }
     useEffect(()=>{
+        console.log(posts);
+        
         //@ts-ignore
         import('lib-flexible')
         ShowFirst()

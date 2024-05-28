@@ -23,6 +23,8 @@ const Category: FC<IProps> = () => {
     let [posts,setPosts] = useState(()=> allPosts.filter(item=>{
        return  item.category === `${path}\r`
     })?.slice(0,basePage ))
+    console.log(path);
+    
     // 做分页
     const ChangePage = (index:number)=>{
         setPosts(()=>allPosts.filter(item=>{
