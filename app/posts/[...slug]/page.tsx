@@ -24,7 +24,6 @@ export const generateMetadata = ({ params }: { params: { slug: string[] } }) => 
 
 const PostLayout = ({ params }: { params: { slug: string[] } }) => {
   let slugPath = params.slug.join('/')
-  console.log(slugPath);
   const post = allPosts.find((post:any) => post._raw.flattenedPath === decodeURI(slugPath))
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
   const MDXContent = useMDXComponent(post.body.code);

@@ -24,5 +24,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "servers/db/sequelize.js", ".contentlayer/generated"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

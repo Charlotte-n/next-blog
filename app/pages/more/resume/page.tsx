@@ -12,11 +12,14 @@ interface ChildrenIProps{
         content:any
     }
 }
-interface ResumePart{
+interface ResumePartType{
     time:string,
     title:string,
-    children:string,
-    titleTwo:string
+    children:{
+        contentFirst:ReactNode,
+        contentTwice:ReactNode
+    },
+    technology:string
 }
 
 const CardPart:FC<ChildrenIProps> = ({header,children})=>{
@@ -30,27 +33,30 @@ const CardPart:FC<ChildrenIProps> = ({header,children})=>{
                 </div>
             </div>
 }
-const ResumePart = ()=>{
+const ResumePart :FC<ResumePartType>= ({time,title,technology,children})=>{
+    const {contentFirst,contentTwice} = children
     return <div className='border-b-[#CCCCCC] border-b-[1px] pb-[15px]'>
         <div className='flex justify-between mb-[10px] '>
-            <div>个人技术博客</div>
-            <div>2019.10-至今</div>
+            <div>{title}</div>
+            <div>{time}</div>
         </div>
         <div>
             <div>
                 <div  className='indent-[2em]'>
-             个人技术博客是我独立开发的博客网站，主要用于记录和分享自己在前端开发、技术学习等方
-面的心得和经验。该网站采用了Next.is框架进行开发，支持实时编辑和预览。
+             {
+                contentFirst
+             }
            </div>
                <div>
-                技术选型: React + Antd + Markdown + SEO + NextUI
+                技术选型: {technology}
                </div>
             </div>
            <div className='mt-[10px]'>
             <h3 className='font-[600] text-[15px] mb-[5px]'>职责和成果</h3>
             <div className='indent-[2em]'>
-                我负责了整个博客网站的搭建、页面设计和开发、SEO优化等。在项目中，我实现了博客文章
-的分类、评论功能。通过精心的设计和不断的优化，使博客网站具有优秀的用户体验和较高的访问速度
+               {
+                contentTwice
+               }
             </div>
            </div>
         </div>
@@ -102,7 +108,10 @@ const Resume: FC<IProps> = () => {
                             {{
                                 content:<div>
                                     <div>
-                                        <ResumePart></ResumePart>
+                                        <ResumePart title='个人技术博客' time='2024.5 - 至今' technology='React + Antd '>{{
+                                            contentFirst:'',
+                                            contentTwice:''
+                                        }}</ResumePart>
                                     </div>
                                 </div>
                             }}
