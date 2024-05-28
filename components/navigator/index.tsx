@@ -10,7 +10,7 @@ interface IProps {
 }
 interface DropDownMenuProps{
     title:string,
-    list:{icon:string,name:string,link:string}[],
+    list:{icon:string,name:string,link:string,size?:string}[],
 }
 //进行映射
 enum MAP_URL  {
@@ -18,13 +18,14 @@ enum MAP_URL  {
     '/pages/article/home'='1',
     '/pages/article/notes'='1',
     '/pages/friend/link'='2',
-    '/pages/friend/message'='2'
+    '/pages/friend/message'='2',
+    '/pages/more/resume'='3',
+    '/pages/more/project'='3'
 }
 //下拉显示的内容
 const DropDownMenu = ({title,list}:DropDownMenuProps)=>{
     const router = useRouter()
-    const name = usePathname()
-    
+
     const gotoOtherPage = (link:string)=>{
         router.push(link)
     }
@@ -36,7 +37,7 @@ const DropDownMenu = ({title,list}:DropDownMenuProps)=>{
                     list.map(item=>{
                         return (
                             <div key={item.name} className=' pl-[10px] pr-[10px] pt-[5px] pb-[5px] rounded hover:bg-[#B20909] hover:text-[white]' onClick={()=>gotoOtherPage(item.link)}>
-                                <i className={`${item.icon} mr-[3px]`}></i>
+                                <span className={`${item.icon} mr-[3px] text-[20px]`}></span>
                                 <span className='text-[15px]'>{item.name}</span>
                             </div>
                         )
@@ -100,15 +101,16 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
             name:'更多',
             icon:'iconfont icon-gengduo',
             link:false,
+            size:'28px',
             list:[
                 {
                     name:'个人简历',
-                    link:'',
+                    link:'/pages/more/resume',
                     icon:''
                 },
                 {
                     name:'我的项目',
-                    link:'',
+                    link:'/pages/more/project',
                     icon:''
                 },
             ]
@@ -140,13 +142,13 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 <div className={`${styles.name} hover:cursor-pointer`} onClick={()=>router.push('/')}>Merikle的Blog</div>
                 <div className="flex items-center">
                     <Search placeholder="输入关键字..." onSearch={onSearch} style={{ width: '180px',marginRight:'20px' }} />
-                    <div className="flex">
+                    <div className="flex items-center">
                         {
                             category.map(item=>{
                                 return (
                                     <div onMouseEnter={()=>handMouseOver(item.id)} onMouseLeave={()=>handleMouseLeave()} key={item.id} className="mr-[20px] hover:cursor-pointer" onClick={()=>gotoOtherPage(item)}>
-                                       <div>
-                                         <span className={`${item.icon} ${current === item.id?"text-[#D6324D]":"text-[black]"}`} style={{width:"25px",height:"25px",display:"inline-block"}}></span>
+                                       <div className='flex items-center'>
+                                         <span className={`${item.icon} ${current === item.id?"text-[#D6324D]":"text-[black]"}  mr-[5px]`} style={{fontSize:item.size?item.size:'20px',display:"inline-block"}}></span>
                                          <span className={`${current === item.id?"text-[#D6324D]":"text-[black]"} text-[15px]`}>{item.name}</span>
                                        </div>
                                        <div className={`${hoverCurrent === item.id?'show':'hidden'}`}>

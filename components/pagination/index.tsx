@@ -6,21 +6,21 @@ import styles from './index.module.css'
 //默认一页10篇文章
 
 interface IProps {
-    children?: ReactNode,
+    children?:any,
     total:number,
-    onChange:()=>void
 }
 const page = 10
 
-const Pagination: FC<IProps> = ({total,onChange}) => {
-   const size = Math.floor(total / page) + 7
+const Pagination: FC<IProps> = ({total,children}) => {
+   const {onChange} = children
+   const size = Math.ceil(total / page)  + 1
    const base = 3
    const activeIndex = useRef(1)
    const [pages ,setPages]= useState<any[]>(()=>[])
    const handleChange = (index:number)=>{
         activeIndex.current = index
         renderPages()
-        // onChange()
+        onChange(index)
    }
    const renderPages = ()=>{
      setPages([])

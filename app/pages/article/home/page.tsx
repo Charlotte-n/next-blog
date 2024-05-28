@@ -1,14 +1,13 @@
 'use client';
 import Link from 'next/link'
 import  Layout  from '../../layouts/global'
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import Image from 'next/image'
 import { allPosts, Markdown, Post } from 'contentlayer/generated'
 import  '../home/page.css'
 import ArticleTag from '../../../../components/article/articles/tags/index'
 import gsap from 'gsap';
-import { Button } from 'antd';
 import Pagination from '@/components/pagination';
 import Introduction from '@/app/components/articles/introduction/index'
 import { Card } from '@nextui-org/react'
@@ -17,7 +16,7 @@ interface IProps {
     children?: ReactNode
 }
 
-function PostCard(post: Post) {
+export function PostCard(post: Post) {
   const myLoader = () => {
     return post.image as string
   }  
@@ -46,8 +45,13 @@ function PostCard(post: Post) {
 }
 
 const ArticleHome: FC<IProps> = () => {
-    const ChangePage = ()=>{
-
+    //做分页
+    const basePage = 5
+    const length = allPosts.length
+    let [posts,setPosts] = useState(()=>allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))?.slice(0,basePage ))
+    // 做分页
+    const ChangePage = (index:number)=>{
+        setPosts(()=>allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).slice((index - 1)*5,(index*5)))
     }
     useEffect(()=>{
         //@ts-ignore
@@ -70,13 +74,13 @@ const ArticleHome: FC<IProps> = () => {
     const ContentLoader = ()=>{
        return 'http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg'
     }
-     const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-    //去往页面
+    
+
     return (
-        <div className='relative'>
+        <div className='relative pb-[50px]'>
             <Layout>
             {/* 左右布局 */}
-            <div className='container h-[100vh] pt-[100px] pl-[40px] pr-[40px] pb-[100px] bg-[#F3F5FA] w-[100vw] flex justify-between'>
+            <div className='container-main min-h-[100vh] pt-[100px] pl-[40px] pr-[40px] pb-[100px] bg-[#F3F5FA] flex'>
                 {/* 左侧 */}
                 <div className='w-[20%] left'>
                     <Introduction></Introduction>
@@ -94,8 +98,12 @@ const ArticleHome: FC<IProps> = () => {
                             <PostCard key={idx} {...post} />
                         ))}
                          {/* 分页 */}
-                        <div className=' m-auto text-center'>
-                        <Pagination total={40} onChange={()=>ChangePage()}></Pagination>
+                        <div className=' w-[100%] text-center'>
+                            <Pagination total={length}>
+                                {{
+                                    onChange:ChangePage
+                                }}
+                            </Pagination>
                         </div>
                     </Card>
                     

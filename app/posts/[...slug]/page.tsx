@@ -13,17 +13,19 @@ import Video from '@/app/components/articles/code/Video'
 const usedcomponents = {
     Video,
   };
-export const generateStaticParams = async () => allPosts.map((post:any) => ({ slug: post._raw.flattenedPath }))
+// export const generateStaticParams = async () => allPosts.map((post:any) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post:any) => post._raw.flattenedPath === params.slug)
+export const generateMetadata = ({ params }: { params: { slug: string[] } }) => {
+  let slugPath = params.slug.join('/')
+  const post = allPosts.find((post:any) => post._raw.flattenedPath === decodeURI(slugPath))
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
   return { title: post.title }
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-  
-  const post = allPosts.find((post:any) => post._raw.flattenedPath === params.slug)
+const PostLayout = ({ params }: { params: { slug: string[] } }) => {
+  let slugPath = params.slug.join('/')
+  console.log(slugPath);
+  const post = allPosts.find((post:any) => post._raw.flattenedPath === decodeURI(slugPath))
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
   const MDXContent = useMDXComponent(post.body.code);
   return (

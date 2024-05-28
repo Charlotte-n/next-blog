@@ -29,11 +29,6 @@ const Font = defineNestedType(() => ({
     title: {
       type: "string",
     },
-    slug: {
-      type: "enum",
-      required: true,
-      options: ["hello"],
-    },
   },
 }));
 export const Post = defineDocumentType(() => ({
@@ -48,8 +43,7 @@ export const Post = defineDocumentType(() => ({
     },
     image: { type: "string" },
     category: {
-      type: "nested",
-      of: Font,
+      type: "string",
     },
   },
   computedFields: {

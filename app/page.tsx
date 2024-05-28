@@ -115,7 +115,7 @@ function App({Component,pageProps}: AppProps) {
                 </div>
               </div>
               {/* 第三个屏幕,记录我的博客的更改时间,滑动的效果 */}
-                <div className='flex flex-col justify-center h-[50vh] items-center bg-[#F5F5F5]'>
+                <div className='flex flex-col justify-center pb-[60px] h-[55vh] items-center bg-[#F5F5F5]'>
                   <div className='text-[30px] font-bold tracking-[0.2em]'>
                     GROWTH RECORD
                   </div>

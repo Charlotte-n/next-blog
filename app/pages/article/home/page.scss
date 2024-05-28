@@ -1,9 +1,9 @@
+
 //第一个屏幕
 @media  (max-width:768px) {
-    .container{
+    .container-main{
         padding-top: 150px;
         flex-direction: column;
-        height: 100vh;
         .left{
             width: 100% !important;
             .introduce{
@@ -28,10 +28,9 @@
 }
 //第二个屏幕
 @media (min-width:768px) and (max-width:992px) {
-    .container{
+    .container-main{
         width: 100vw !important;
         padding-top: 150px;
-        height: 100vh;
         .left{
             width: 40%;
             .introduce{
@@ -53,9 +52,8 @@
     } 
 }
 @media (min-width:992px) and (max-width:1200px) {
-    .container{
+    .container-main{
         padding-top: 150px;
-        height: 100vh;
         .left{
             width: 40%;
             .introduce{
@@ -79,6 +77,12 @@
 }
 
 //第三个屏幕
+@media (min-width:1200px) {
+    .container-main{
+        justify-content: space-between;
+    }
+}
+
 
 .introduction{
     cursor: pointer;

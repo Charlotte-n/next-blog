@@ -1,47 +1,45 @@
 @media (max-width: 768px) {
-  .container {
+  .container-main {
     padding-top: 150px;
     flex-direction: column;
-    height: 100vh;
   }
-  .container .left {
+  .container-main .left {
     width: 100% !important;
   }
-  .container .left .introduce {
+  .container-main .left .introduce {
     width: 300px;
     left: -80%;
   }
-  .container .left .icon-github {
+  .container-main .left .icon-github {
     width: 50px;
     height: 50px;
   }
-  .container .left .icon-juejin-logo {
+  .container-main .left .icon-juejin-logo {
     width: 50px;
     height: 50px;
   }
-  .container .right {
+  .container-main .right {
     margin-top: 20px;
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  .container {
+  .container-main {
     width: 100vw !important;
     padding-top: 150px;
-    height: 100vh;
   }
-  .container .left {
+  .container-main .left {
     width: 40%;
   }
-  .container .left .introduce {
+  .container-main .left .introduce {
     width: 200px;
     left: -40%;
   }
-  .container .left .icon-github {
+  .container-main .left .icon-github {
     width: 40px;
     height: 40px;
   }
-  .container .left .icon-juejin-logo {
+  .container-main .left .icon-juejin-logo {
     width: 40px;
     height: 40px;
   }
@@ -50,27 +48,31 @@
   }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
-  .container {
+  .container-main {
     padding-top: 150px;
-    height: 100vh;
   }
-  .container .left {
+  .container-main .left {
     width: 40%;
   }
-  .container .left .introduce {
+  .container-main .left .introduce {
     width: 200px;
     left: -40%;
   }
-  .container .left .icon-github {
+  .container-main .left .icon-github {
     width: 40px;
     height: 40px;
   }
-  .container .left .icon-juejin-logo {
+  .container-main .left .icon-juejin-logo {
     width: 40px;
     height: 40px;
   }
-  .container .right {
+  .container-main .right {
     width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .container-main {
+    justify-content: space-between;
   }
 }
 .introduction {
