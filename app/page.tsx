@@ -36,7 +36,7 @@ const Card = ({title,className,img,link}:{title:string,className:string,img:stri
   } 
   
   return (
-    <div className='relative'>
+    <div className={`relative ${styles.containerMain}`} >
       <img ref={image}
       src={img}
       alt="图片"

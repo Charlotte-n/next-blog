@@ -1,6 +1,6 @@
 .container{
     background:url('http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202304/45e2e370615f8766e0eae1d13f59274b--1195357847.jpg') no-repeat ;
-    background-size: contain;
+    background-size: 100% 100vh;
 }
 @media (min-width:1440px) and (max-width:2800px){
      .function{
@@ -30,8 +30,17 @@
         width:100%;
     }
 }
+@media (max-width:768px){
+    .containerMain{
+        padding:0 20px;
+        font-size:20px;
+    }
+}
 @media (max-width:414px){
-
+     .containerMain{
+        padding:0 20px;
+        
+    }
     .function{
         grid-template-columns:1fr;
         grid-row-gap:10px;
