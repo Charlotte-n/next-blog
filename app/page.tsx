@@ -10,26 +10,40 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from '../styles/page/page.module.css';
 import { useRouter } from 'next/navigation';
+//@ts-ignore
+import _ from 'lodash'
 
 //卡片
 const Card = ({title,className,img,link}:{title:string,className:string,img:string,link:string})=>{
   const router = useRouter()
+   const [isAnimating, setIsAnimating] = useState(false);
   //获取容器的高度
   const image = useRef<any>()
   //向上动画
-  const goUp = ()=>{
-    gsap.fromTo(
-      `.${className}`,
-      {  },
-      { height:(image.current as any).clientHeight,borderTopRightRadius:'20px',borderTopLeftRadius:'20px', duration: 1,fontSize:'25px' }
-    );
-  }
-  const goDown = ()=>{
-    gsap.fromTo(
-      `.${className}`,
-      {height:(image.current as any).clientHeight},
-      {height:(image.current as any).clientHeight / 3,borderTopRightRadius:'0px',borderTopLeftRadius:'0px',fontSize:'18px'}
-    )
+    const goUp = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      gsap.to(`.${className}`, {
+        height: image.current.clientHeight,
+        borderTopRightRadius: '20px',
+        borderTopLeftRadius: '20px',
+        fontSize: '25px',
+        duration:0.3,
+        onComplete: () => setIsAnimating(false),
+      });
+    }}
+  const goDown = () => {
+     if (!isAnimating) {
+      setIsAnimating(true);
+      gsap.to(`.${className}`, {
+        height: image.current.clientHeight / 3,
+        borderTopRightRadius: '0px',
+        borderTopLeftRadius: '0px',
+        fontSize: '18px',
+        duration: 0.3,
+        onComplete: () => setIsAnimating(false),
+      });
+    }
   }
   const gotoOther = ()=>{
     router.push(link)
@@ -42,7 +56,7 @@ const Card = ({title,className,img,link}:{title:string,className:string,img:stri
       alt="图片"
       style={{borderRadius:'20px'}}
       className={styles.CardImg}></img>
-    <div onClick={()=>gotoOther()} onMouseEnter={()=>goUp()} onMouseLeave={()=>goDown()} className={`bg-[#252524] hover:cursor-pointer h-[33%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
+    <div onClick={()=>gotoOther()} onMouseEnter={goUp} onMouseLeave={goDown} className={`bg-[#252524] hover:cursor-pointer h-[33%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
       <div className='text-[white]'>{title}</div>
     </div>
     </div>

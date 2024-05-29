@@ -41,6 +41,9 @@ importers:
       lib-flexible:
         specifier: ^0.3.2
         version: 0.3.2
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       mysql2:
         specifier: ^3.9.7
         version: 3.9.7
