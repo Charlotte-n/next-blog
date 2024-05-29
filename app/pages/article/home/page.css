@@ -35,7 +35,6 @@
   }
   .container-main .left {
     width: 40%;
-    display: block !important;
   }
   .container-main .left .introduce {
     width: 200px;
@@ -59,7 +58,6 @@
   }
   .container-main .left {
     width: 40%;
-    display: block !important;
   }
   .container-main .left .introduce {
     width: 200px;
@@ -79,7 +77,6 @@
 }
 @media (min-width: 1200px) {
   .container-main {
-    display: block !important;
     justify-content: space-between;
   }
 }

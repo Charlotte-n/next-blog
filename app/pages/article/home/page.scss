@@ -38,7 +38,6 @@
         padding-top: 150px;
         .left{
             width: 40%;
-            display: block !important;
             .introduce{
                 width: 200px;
                 left: -40%;
@@ -63,7 +62,6 @@
         padding-top: 150px;
         .left{
             width: 40%;
-            display: block !important;
             .introduce{
                 width: 200px;
                 left: -40%;
@@ -87,7 +85,6 @@
 //第三个屏幕
 @media (min-width:1200px) {
     .container-main{
-        display: block !important;
         justify-content: space-between;
     }
 }
