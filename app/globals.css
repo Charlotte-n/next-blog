@@ -46,7 +46,9 @@ body {
  }
  /* markdown的渲染 */
 [data-theme='dracula-soft']{
-  padding:10px;
+  /* 设置宽度 */
+  padding:8px;
+  overflow-x:auto;
   background-color:transparent;
   border-radius:15px;
 }
@@ -61,7 +63,7 @@ code > [data-line]::before {
   /* Other styling */
   display: inline-block;
   width: 1rem;
-  margin-right: 2rem;
+  margin-right: 0.8rem;
   text-align: right;
   color: gray;
 }

@@ -68,7 +68,7 @@ const Resume: FC<IProps> = () => {
     return <div className='relative'>
         <Layout>
             <div className='min-h-[100vh] pt-[100px] pb-[150px] px-[40px] text-[16px]'>
-                <div className='flex justify-center flex-col m-auto w-[50%]'>
+                <div className='flex justify-center flex-col m-auto w-[50%] main'>
                     <header className='text-[30px] text-center'>Merikle的前端简历</header>
                     <div >
                         {/* 职业概述 */}

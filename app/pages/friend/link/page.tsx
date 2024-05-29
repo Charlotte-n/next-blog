@@ -3,7 +3,6 @@
 import Layout from '@/app/pages/layouts/global'
 import React, { memo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
-import Image from 'next/image'
 import '../link/page.css'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -53,13 +52,11 @@ const Card = ({imageName,name,title}:{imageName:string,name:string,title:string
             { color:'black',translateX:'0px',duration:0.5}
         );
     }
-    
-    
     return (
         <div onMouseLeave={()=>handleMouseLeave()} onMouseOver={()=>handleMouseEnter()} className={`Card cursor-pointer pl-[20px] pr-[20px] flex items-center  bg-[white] border-[1px] border-solid border-[#E3E8F7] rounded-md h-[100px] mr-[20px] ${name} cardBox`}>
             <img alt='' src='http://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202403/a9bd369e2537a55a836fbb3f707853ee--427633077.jpg' className={`image mr-[20px] w-[59px] h-[59px] rounded-full ${imageName}`}/>
             <div className={`w-[150px] ${title}` }>
-                <div className='title mt-[13px] mb-[5px] text-[23px] '>
+                <div className='title mt-[13px] mb-[5px] text-[23px] md:w-[80px] md:text-ellipsis md:overflow-hidden hover:w-[150px] hover:text-nowrap'>
                     {content}
                 </div>
                 <div className='text-[17px] h-[50px] overflow-hidden '>
@@ -77,11 +74,11 @@ const text: FC<IProps> = () => {
     return (
         <div className='relative h-[100%] min-h-[100vh]'>
              <Layout>
-       <div className='container'>
+       <div className='containerMain'>
         {/* 喜欢的博主 */}
             <div className=''>
                 <div className='text-[25px] font-[700] text-[#363636]'>喜欢的博主(20)</div>
-            <div className=' grid sm:grid-cols-3 md:grid-cols-4'>
+            <div className=' grid  sm:grid-cols-3 md:grid-cols-3'>
                 {
                     new Array(5).fill(0).map((item,index)=>{
                             return (
@@ -96,7 +93,7 @@ const text: FC<IProps> = () => {
             {/* 喜欢的博客 */}
             <div className='mt-[20px]'>
                 <div className='text-[25px] font-[700] text-[#363636]'>喜欢的博客(20)</div>
-            <div className=' grid sm:grid-cols-3 md:grid-cols-4'>
+            <div className=' grid sm:grid-cols-3'>
                 {
                     new Array(5).fill(0).map((item,index)=>{
                             return (

@@ -23,7 +23,7 @@
         grid-column-gap:30px;
     }
     .functionContent{
-        width:100%;
+        width:35vw;
     }
     .CardImg{
         height:280px;
@@ -32,15 +32,10 @@
 }
 @media (max-width:768px){
     .containerMain{
-        padding:0 20px;
         font-size:20px;
     }
 }
 @media (max-width:414px){
-     .containerMain{
-        padding:0 20px;
-        
-    }
     .function{
         grid-template-columns:1fr;
         grid-row-gap:10px;

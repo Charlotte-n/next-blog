@@ -42,7 +42,7 @@ const Card = ({title,className,img,link}:{title:string,className:string,img:stri
       alt="图片"
       style={{borderRadius:'20px'}}
       className={styles.CardImg}></img>
-    <div onClick={()=>gotoOther()} onMouseEnter={()=>goUp()} onMouseLeave={()=>goDown()} className={`bg-[#252524] hover:cursor-pointer h-[30%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
+    <div onClick={()=>gotoOther()} onMouseEnter={()=>goUp()} onMouseLeave={()=>goDown()} className={`bg-[#252524] hover:cursor-pointer h-[33%] w-[100%] flex justify-center items-center absolute left-0 bottom-0 z-[10px] ${className}`} style={{backgroundColor:'rgba(0,0,0,.6)',backdropFilter:'blur(10px)',borderBottomLeftRadius:'20px',borderBottomRightRadius:'20px',fontSize:'18px'}}>
       <div className='text-[white]'>{title}</div>
     </div>
     </div>
