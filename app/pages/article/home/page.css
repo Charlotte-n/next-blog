@@ -1,6 +1,5 @@
-@media (max-width: 769px) {
+@media (max-width: 768px) {
   .container-main {
-    padding-top: 150px;
     flex-direction: column;
   }
   .container-main .left {
@@ -31,7 +30,6 @@
 @media (min-width: 769px) and (max-width: 992px) {
   .container-main {
     width: 100vw !important;
-    padding-top: 150px;
   }
   .container-main .left {
     width: 40%;
@@ -53,9 +51,6 @@
   }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
-  .container-main {
-    padding-top: 150px;
-  }
   .container-main .left {
     width: 40%;
   }

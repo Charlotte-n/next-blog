@@ -1,8 +1,7 @@
 
 //第一个屏幕
-@media  (max-width:769px) {
+@media  (max-width:768px) {
     .container-main{
-        padding-top: 150px;
         flex-direction: column;
         .left{
             display: block !important;
@@ -35,7 +34,6 @@
 @media (min-width:769px) and (max-width:992px) {
     .container-main{
         width: 100vw !important;
-        padding-top: 150px;
         .left{
             width: 40%;
             .introduce{
@@ -59,7 +57,6 @@
 
 @media (min-width:992px) and (max-width:1200px) {
     .container-main{
-        padding-top: 150px;
         .left{
             width: 40%;
             .introduce{
