@@ -21,4 +21,5 @@ const Links = sequelize.define('links',{
         defaultValue:1,
     }
 })
+await Comment.sync({alter:true})
 export default Links

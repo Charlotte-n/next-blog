@@ -2,19 +2,19 @@ import sequelize from '../db/sequelize'
 import { DataTypes } from 'sequelize';
 const Message = sequelize.define('message',{
    nickname:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
    },
    email:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
    },
    website:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:true
    },
    content:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
    },
    deleted:{
@@ -24,5 +24,5 @@ const Message = sequelize.define('message',{
    },
 })
 
-Message.sync({alter:true})
+await Message.sync({alter:true})
 export default Message

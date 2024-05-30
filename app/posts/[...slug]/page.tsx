@@ -1,3 +1,4 @@
+'use client'
 //这个页面专门做布局的
 import { format, parseISO } from 'date-fns'
 //@ts-ignore
@@ -9,13 +10,14 @@ import Toc from '@/app/components/articles/toc/toc'
 import './index.css'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Video from '@/app/components/articles/code/Video'
+import { useEffect, useState ,useRef, memo} from 'react'
 
 const usedcomponents = {
     Video,
   };
 // export const generateStaticParams = async () => allPosts.map((post:any) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string[] } }) => {
+const generateMetadata = ({ params }: { params: { slug: string[] } }) => {
   let slugPath = params.slug.join('/')
   const post = allPosts.find((post:any) => post._raw.flattenedPath === decodeURI(slugPath))
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
@@ -27,6 +29,23 @@ const PostLayout = ({ params }: { params: { slug: string[] } }) => {
   const post = allPosts.find((post:any) => post._raw.flattenedPath === decodeURI(slugPath))
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
   const MDXContent = useMDXComponent(post.body.code);
+  const scrollHeight  = useRef(0)
+  const toc = useRef<any>()
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      scrollHeight.current = document.documentElement.scrollTop
+      if(scrollHeight.current > 500){
+        toc.current.classList.add('fixed','top-[80px]')
+      }else{
+        toc.current.classList.remove('fixed','top-[80px]')
+      }
+      
+    }
+    window.addEventListener('scroll',handleScroll)
+    return ()=>{
+      window.removeEventListener('scroll',handleScroll)
+    }
+  },[])
   return (
     <div className='relative pb-[200px]'>
       <Layout>
@@ -44,7 +63,7 @@ const PostLayout = ({ params }: { params: { slug: string[] } }) => {
                     </Card>
                    </div>
                    {/* 文章目录 */}
-                   <div className='mt-[20px]'>
+                   <div className={`mt-[20px] `} ref={toc}>
                     <Toc></Toc>
                    </div>
         </div>
@@ -73,4 +92,4 @@ const PostLayout = ({ params }: { params: { slug: string[] } }) => {
   )
 }
 
-export default PostLayout
+export default memo(PostLayout)

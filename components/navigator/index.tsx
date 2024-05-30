@@ -11,6 +11,7 @@ interface IProps {
 interface DropDownMenuProps{
     title:string,
     list:{icon:string,name:string,link:string,size?:string}[],
+    subCurrent:{link:string | boolean,key:string,id:string}
 }
 //进行映射
 enum MAP_URL  {
@@ -22,35 +23,7 @@ enum MAP_URL  {
     '/pages/more/resume'='3',
     '/pages/more/project'='3'
 }
-//下拉显示的内容
-const DropDownMenu = ({title,list}:DropDownMenuProps)=>{
-    const router = useRouter()
-
-    const gotoOtherPage = (link:string)=>{
-        router.push(link)
-    }
-    
-    return (
-        <div className='absolute bg-[white] rounded z-[10]'>
-            <div className=''>
-                {
-                    list.map(item=>{
-                        return (
-                            <div key={item.name} className=' pl-[10px] pr-[10px] pt-[5px] pb-[5px] rounded hover:bg-[#B20909] hover:text-[white]' onClick={()=>gotoOtherPage(item.link)}>
-                                <span className={`${item.icon} mr-[3px] text-[20px]`}></span>
-                                <span className='text-[15px]'>{item.name}</span>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </div>
-    )
-}
-const Navigator: FC<IProps> = ({scrollTop}) => {
-    const router = useRouter()
-    const PathName = usePathname()
-    // category
+ // category
     const category = [
         {
             id:'0',
@@ -68,12 +41,14 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 {
                     name:'文章列表',
                     link:'/pages/article/home',
-                    icon:''
+                    icon:'',
+                    key:'1'
                 },
                 {
                     name:'笔记',
                     link:'/pages/article/notes',
-                    icon:''
+                    icon:'',
+                    key:'2'
                 },
 
             ]
@@ -87,12 +62,14 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 {
                     name:'友情链接',
                     link:'/pages/friend/link',
-                    icon:''
+                    icon:'',
+                    key:'1'
                 },
                 {
                     name:'留言板',
                     link:'/pages/friend/message',
-                    icon:''
+                    icon:'',
+                    key:'2'
                 }
             ]
         },
@@ -106,22 +83,59 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                 {
                     name:'个人简历',
                     link:'/pages/more/resume',
-                    icon:''
+                    icon:'',
+                    key:'1'
                 },
                 {
                     name:'我的项目',
                     link:'/pages/more/project',
-                    icon:''
+                    icon:'',
+                    key:'2'
                 },
             ]
         }
     ]
+//下拉显示的内容
+const DropDownMenu = ({title,list,subCurrent}:DropDownMenuProps)=>{
+    const router = useRouter()
+    const pathName = usePathname()
+    const gotoOtherPage = (link:string)=>{
+        router.push(link)
+    }
+    useEffect(()=>{
+              console.log(pathName === subCurrent.link,subCurrent.link);
+    })
+    
+    return (
+        <div className='absolute bg-[white] rounded z-[10]'>
+            <div className=''>
+                {
+                    list.map(item=>{
+                        return (
+                            <div key={item.name} className={`${subCurrent.link === pathName?'bg-[#B20909]':null} pl-[10px] pr-[10px] pt-[5px] pb-[5px] rounded hover:bg-[#B20909] hover:text-[white]`} onClick={()=>gotoOtherPage(item.link)}>
+                                <span className={`${item.icon} mr-[3px] text-[20px]`}></span>
+                                <span className='text-[15px]'>{item.name}</span>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </div>
+    )
+}
+const Navigator: FC<IProps> = ({scrollTop}) => {
+    const router = useRouter()
+    const PathName = usePathname()
     const onSearch = ()=>{}
     const [current,SetCurrent] = useState('0')
+    const [subCurrent,SetSubCurrent]  = useState({} as {id:string,link:string | boolean,key:string})
     //去往别的页面
-    const gotoOtherPage = (item:{id:string,link:string | boolean})=>{
+    const gotoOtherPage = (item:{id:string,link:string | boolean,key:string})=>{
         const link = item.link
         SetCurrent(item.id)
+        SetSubCurrent(item)
+        console.log(item);
+        
         link?router.push(item.link as string):null
     }
   const [hoverCurrent,SetHoverCurrent] = useState('')
@@ -133,6 +147,7 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
   }
   useEffect(()=>{
         SetCurrent((MAP_URL as any)[PathName])
+        
     },[PathName,current])
 
     return (
@@ -146,14 +161,14 @@ const Navigator: FC<IProps> = ({scrollTop}) => {
                         {
                             category.map(item=>{
                                 return (
-                                    <div onMouseEnter={()=>handMouseOver(item.id)} onMouseLeave={()=>handleMouseLeave()} key={item.id} className="mr-[20px] hover:cursor-pointer" onClick={()=>gotoOtherPage(item)}>
+                                    <div onMouseEnter={()=>handMouseOver(item.id)} onMouseLeave={()=>handleMouseLeave()} key={item.id} className="mr-[20px] hover:cursor-pointer" onClick={()=>gotoOtherPage(item as any)}>
                                        <div className='flex items-center'>
                                          <span className={`${item.icon} ${current === item.id?"text-[#D6324D]":"text-[black]"}  mr-[5px]`} style={{fontSize:item.size?item.size:'20px',display:"inline-block"}}></span>
                                          <span className={`${current === item.id?"text-[#D6324D]":"text-[black]"} text-[15px]`}>{item.name}</span>
                                        </div>
                                        <div className={`${hoverCurrent === item.id?'show':'hidden'}`}>
                                             {
-                                                item.list?<DropDownMenu title={item.name} list={item.list as {icon:string,name:string,link:string}[]}></DropDownMenu>:null
+                                                item.list?<DropDownMenu subCurrent={subCurrent} title={item.name} list={item.list as {icon:string,name:string,link:string}[]}></DropDownMenu>:null
                                             }
                                        </div>
                                     </div>

@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
     const { nickname, email, website, content, answerNickName } = result;
     const searchParams = request.nextUrl.searchParams;
     const id = Number(searchParams.get("id"));
+
     if (id > 0) {
       let res;
       res = await Comment.create({

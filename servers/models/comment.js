@@ -3,11 +3,11 @@ import { DataTypes } from 'sequelize';
 import Message from './message';
 const Comment = sequelize.define('comment',{
    nickname:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
    },
    content:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
    },
    deleted:{
@@ -20,7 +20,7 @@ const Comment = sequelize.define('comment',{
     allowNull:false
    },
    answerNickName:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
    }
 })
@@ -33,5 +33,5 @@ Message.hasMany(Comment,{
 	//创建外键 Blog.userId -> User.id
 	foreignKey:'childrenId'
 })
-// Comment.sync({alter:true})
+await Comment.sync({alter:true})
 export default Comment
