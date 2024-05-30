@@ -1,7 +1,7 @@
 .header{
     display: flex;
     justify-content: space-between;
-    padding: 10px 80px;
+    padding: 10px 20px;
     background-color: transparent;
     color:white;
 }
@@ -10,16 +10,5 @@
 }
 
 /*移动端适配*/
-@media (max-width: 768px) {
-    .name{
-        display: none;
-    }
-    .header{
-        display: flex;
-        justify-content: center;
-    }
-    .search{
-        display:none;
-    }
-}
+
 

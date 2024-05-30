@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize'
 import mysql2 from 'mysql2'
-const sequelize = new Sequelize(process.env.NEXT_PUBLIC_MYSQL_DATABASE,process.env.NEXT_PUBLIC_MYSQL_USERNAME,process.env.NEXT_PUBLIC_MYSQL_PASSWORD,{
-  host: process.env.NEXT_PUBLIC_MYSQL_HOST,
+const sequelize = new Sequelize('Blog','root','1320444219wx',{
+  host: '47.120.13.242',
   port:3306,
   dialect: "mysql",
   dialectModule:mysql2
