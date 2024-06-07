@@ -1,0 +1,11 @@
+
+#nprogress .bar {
+ background: #0072f5 !important;
+}
+#nprogress .peg {
+  background: #0072f5 !important;
+}
+#nprogress .spinner {
+    /* 是否显示右边的加载圈圈 */
+ display: none !important; 
+}

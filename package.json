@@ -24,6 +24,8 @@
     "mysql2": "^3.9.7",
     "next": "14.2.3",
     "next-contentlayer": "^0.3.4",
+    "next-nprogress-bar": "^2.3.12",
+    "nprogress": "^0.2.0",
     "postcss-px2rem-exclude": "^0.0.6",
     "postcss-pxtorem": "^6.1.0",
     "react": "^18",
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nprogress": "^0.2.3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8.57.0",

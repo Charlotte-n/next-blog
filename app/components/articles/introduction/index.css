@@ -6,7 +6,6 @@
   animation: hiddenImage 0.2s ease-out 1 forwards;
 }
 .introduction:hover .introduce {
-  display: block;
   animation: showText 0.5s ease-in-out 2 forwards;
 }
 @keyframes hiddenImage {
@@ -15,7 +14,6 @@
   }
   100% {
     transform: scale(0);
-    display: none;
   }
 }
 @keyframes showText {
@@ -24,5 +22,6 @@
   }
   100% {
     opacity: 1;
+    display: block;
   }
 }

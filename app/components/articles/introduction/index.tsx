@@ -33,7 +33,7 @@ const Introduction: FC<IProps> = () => {
                                        
                                     </div>
                                 </div> 
-                                 <div className='introduce absolute hidden top-[0px] text-[15px] w-[200px] left-[-30%]'>
+                                 <div className='introduce absolute hidden  top-[0px] text-[15px] w-[200px] left-[-30%]'>
                                         <div>
                                             这里记录着博主<span className='font-[700]'>七七八八</span>的问题和看法,请带着<span className='font-[700]'>怀疑</span>的态度浏览相关内容，毕竟我<span className='font-[700]'>不是专业</span>人士，但是我<span className='font-[700]'>热爱前端</span>，喜欢探索一些<span className='font-[700]'>前端新技术</span>。
                                         </div>
