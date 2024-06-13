@@ -31,7 +31,7 @@ const Toc: FC<IProps> = () => {
     return <div className={``}>
         <Card className='px-[40px] py-[20px]'>
         <div className='text-center'>目录</div>
-        <div className="mt-[20px] js-toc"></div>
+        <div className="mt-[20px] js-toc w-[180px] overflow-hidden"></div>
     </Card>
     </div>
     

@@ -68,7 +68,7 @@ const PostLayout = ({ params }: { params: { slug: string[] } }) => {
                    </div>
         </div>
         {/* 右侧 */}
-        <div className="right text-[20px] w-[78%] mb-8 ">
+        <div className="right text-[15px] w-[78%] mb-8 ">
           <Card className='px-[40px] py-[30px]'>
              <h1 className="text-[30px] font-bold text-center">{post.title}</h1>
             <time dateTime={post.date} className="mt-1 text-[15px] text-gray-600 text-center">

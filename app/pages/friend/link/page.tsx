@@ -106,6 +106,14 @@ const text: FC<IProps> = () => {
  
             </div>
             </div>
+            {/* 申请友链 */}
+            <div className='mt-[20px]'>
+                <div className='text-[25px] font-[700] text-[#363636]'>申请友链</div>
+                <div>
+                    
+                </div>
+            </div>
+
        </div>
     </Layout>
         </div>
