@@ -3,27 +3,36 @@ title: react的一些坑
 description: 介绍一下react的一些坑
 date: 2024-6-13
 image: https://cdn-hw-static2.shanhutech.cn/bizhi/staticwp/202209/b2eea000d3383647cb491f9385c567e1--2316244773.jpg
+category: 前端
 ---
 
 # 起因
+\
 学习react,在做项目的时候出现了很多问题，现在在这篇文章中进行总结和思考，方便我以后的学习。
+<br/>
 # 问题
+<br/>
 ## 基础的问题
+<br/>
 ### react的更新问题
+<br/>
 react的更新问题，react的更新会重新执行react函数组件方法本身，并且子组件也会一起更新。
 
 解决办法:导出组件的时候，使用React.memo包裹组件，这样组件就不会重新执行。
 
-
+<br/>
 ### useCallback和useMemo的滥用
+<br/>
 因为react的更新问题，每次页面进行了更新，其中的方法也会重新进行执行。有的时候会导致useCallback和useMemo的滥用，导致性能问题。
 
 解决办法:当一些对象是固定不变的，将他们放在组件的外面。当给子组件的对象是和组件数据有关的，也就是做一个计算属性采用useMemo().
-
+<br/>
 ### state数据拿不到
+<br/>
 需要在useEffect,useCallback,useMemo中的后面添加上依赖项。
-
+<br/>
 ## 其他优化的问题
+<br/>
 useState,useRef和useEffect的使用
 
 当使用了useState会使视图发生改变，但是不能拿到当前的值，要从useEffect中才能拿到。

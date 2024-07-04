@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+      function findSameId(arr1,arr2){
+        let length = arr2.length;
+        let count = 0
+        let result = []
+       for(let i = 0;i < arr1.length;i++){
+        if(count === length){
+            return 
+        }
+        if(arr1[i].id === arr2[count]){
+            result.push(arr1[i])
+        }
+        count++
+       }
+       return result
+      }
+      //5.
+      function findId(data){
+        let result = []
+        if(!data.length)return
+        for(let i = 0;i < data.length;i++){
+            if(data[i].children){
+                findId(data[i].children)
+            }
+            if(data[i].id){
+                result.push(data[i].id)
+            }
+        }
+        return result
+      }
+
+      //6.
+      function sortAndGroup(){
+        
+      }
+   </script>
+</body>
+</html>
